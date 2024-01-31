@@ -8,8 +8,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config["SECRET_KEY"] = "abc"
 db = SQLAlchemy(app)
-# login_manager = LoginManager()
-# login_manager.init_app(app)
+login_manager = LoginManager()
+login_manager.init_app(app)
 
 
 
@@ -26,6 +26,14 @@ class Tournaments(db.Model):
     time = db.Column(db.String(100), unique=False, nullable=False)
     linkToForms = db.Column(db.String(150), unique=False, nullable=False)
 
+with app.app_context():
+    db.create_all()
+
+# function that loads users
+@login_manager.user_loader
+def loader_user(user_id):
+	return Users.query.get(user_id)
+
 @app.route('/', methods=['GET', 'POST'])
 def index(): 
     if request.method == 'GET':
@@ -38,10 +46,6 @@ def add_User():
         db.session.add(user)
         db.session.commit()
         return redirect(url_for("index"))
-
-
-with app.app_context():
-    db.create_all()
 
 if __name__ == '__main__':
     app.run(debug=True)
