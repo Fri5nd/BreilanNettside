@@ -39,13 +39,17 @@ def index():
     if request.method == 'GET':
          return render_template('index.html')
 
+@app.route('/login', methods=['GET', 'POST'])
+def login(): 
+
 @app.route('/adduser', methods=['GET', 'POST'])
-def add_User():
+def adduser():
     if request.method == 'POST':
-        user = Users(username=request.form.get("username"), password=request.form.get("password"))
+        user = Users(username=request.form.get("usernameInput"), password=request.form.get("passwordInput"))
         db.session.add(user)
         db.session.commit()
         return redirect(url_for("index"))
+    return render_template("addUser.html")
 
 if __name__ == '__main__':
     app.run(debug=True)

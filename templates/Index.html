@@ -1,14 +1,14 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css')}}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Breilan</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   </head>
   <body>
-    <form id="loginForm">
+    <form id="loginForm" action="#" method="post">
       <label >
         username
       </label>
@@ -21,7 +21,15 @@
     
     </form>
 
+    <a href="/adduser">
+      add user
+    </a>
 
-    <script src="script.js"></script>
+    <a href="/login">
+      log in
+    </a>
+
+
+    <script src="{{ url_for('static', filename='/javascript/script.js') }}"></script>
   </body>
 </html>
