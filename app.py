@@ -12,12 +12,13 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 
-
+# class that defines the Users table in the database
 class Users(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(250), unique=True, nullable=False)
     password = db.Column(db.String(250), nullable=False)
 
+# class that defines the Tournaments table in the database
 class Tournaments(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     tournamentName = db.Column(db.String(150), unique=False, nullable=False)
@@ -26,6 +27,7 @@ class Tournaments(db.Model):
     time = db.Column(db.String(100), unique=False, nullable=False)
     linkToForms = db.Column(db.String(150), unique=False, nullable=False)
 
+# initializes the database
 with app.app_context():
     db.create_all()
 
@@ -34,14 +36,38 @@ with app.app_context():
 def loader_user(user_id):
 	return Users.query.get(user_id)
 
+# route for the main page of the site
 @app.route('/', methods=['GET', 'POST'])
 def index(): 
     if request.method == 'GET':
          return render_template('index.html')
 
+# route for loging in a user
 @app.route('/login', methods=['GET', 'POST'])
 def login(): 
+    if request.method == 'POST' and (request.form.get("usernameInput") != "" or request.form.get("passwordInput") != ""):
+        user = Users.query.filter_by(username=request.form.get("usernameInput")).first()
+        if user and user.password == request.form.get("passwordInput"):
+            login_user(user)
+            return redirect(url_for("index"))
+        else:
+            # Invalid username or password
+            return render_template("login.html", error="Invalid username or password")
+            print(error)
+    else:
+        # Form not submitted correctly (e.g., missing username or password)
+        return render_template("login.html", error="Please provide both username and password")
+        print(error)
+    return render_template("login.html")
 
+# route for logging out of your account
+@app.route("/logout")
+def logout():
+	logout_user()
+	return redirect(url_for("index"))
+
+# Will not be in use when page is done as more users will not be required at that time
+# route for form that adds users
 @app.route('/adduser', methods=['GET', 'POST'])
 def adduser():
     if request.method == 'POST':
@@ -51,5 +77,6 @@ def adduser():
         return redirect(url_for("index"))
     return render_template("addUser.html")
 
+# runs the app on the flask development server
 if __name__ == '__main__':
     app.run(debug=True)
