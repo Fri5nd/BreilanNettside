@@ -1,1 +1,34 @@
+.tournamentList{
+    width: 70%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
 
+.tournamentDiv{
+    width: 450px;
+    height: 100px;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.nameDate{
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.organizer{
+    margin: 0;
+}
+
+.signUpLink{
+    margin-left: auto;
+}

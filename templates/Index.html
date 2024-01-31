@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Breilan</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   </head>
   <body>
-    <h1 class=" ">{{ current_user.username}}</h1>
+    <h1 class=" ">{{ current_user.username }}</h1>
     <form id="loginForm" action="#" method="post">
       <label >
         username
@@ -30,6 +30,36 @@
       log in
     </a>
 
+    <a href="/logout">
+      log out
+    </a>
+
+    <article id="tournamentList">
+      <section class="tournamentDiv">
+        <div class="nameDate">
+          <h1>Super Smash bros</h1>
+          <p>17.feb kl.19:00</p>
+        </div>
+        <p class="organizer">Fredrik Gya</p>
+        <a href="https://www.w3schools.com/jquery/ajax_ajaxcomplete.asp" class="signUpLink">Påmelding</a>
+      </section>
+      <section class="tournamentDiv">
+        <div class="nameDate">
+          <h1>Super Smash bros</h1>
+          <p>17.feb kl.19:00</p>
+        </div>
+        <p class="organizer">Fredrik Gya</p>
+        <a href="https://www.w3schools.com/jquery/ajax_ajaxcomplete.asp" class="signUpLink">Påmelding</a>
+      </section>
+      <section class="tournamentDiv">
+        <div class="nameDate">
+          <h1>Super Smash bros</h1>
+          <p>17.feb kl.19:00</p>
+        </div>
+        <p class="organizer">Fredrik Gya</p>
+        <a href="https://www.w3schools.com/jquery/ajax_ajaxcomplete.asp" class="signUpLink">Påmelding</a>
+      </section>
+    </article>
 
     <script src="{{ url_for('static', filename='/javascript/script.js') }}"></script>
   </body>
