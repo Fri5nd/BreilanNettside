@@ -66,7 +66,7 @@ def logout():
 	logout_user()
 	return redirect(url_for("index"))
 
-# Will not be in use when page is done as more users will not be required at that time
+# Comment this out or remove before deploying website
 # route for form that adds users
 @app.route('/adduser', methods=['GET', 'POST'])
 def adduser():
