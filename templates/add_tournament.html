@@ -9,35 +9,55 @@
   </head>
   <body>
     <h1 class=" ">{{ current_user.username }}</h1>
-    <form id="loginForm" action="#" method="post">
-      <label >
-        username
-      </label>
-      <input type="text" name="username" id="usernameInput">
-      <label >
-        password
-      </label>
-      <input type="password" name="password" id="passwordInput">
-      <button type="submit">login</button>
+    <form id="tournamentForm" action="#" method="post">
+      
+        <label >
+            Name of tournament
+        </label>
+        <input type="text" name="tournamentNameForm" id="tournamentNameForm">
+
+        <label >
+            Date
+        </label>
+        <input type="text" name="tournamentDateForm" id="tournamentDateForm">
+
+        <label >
+            time
+        </label>
+        <input type="text" name="tournamentDTimeForm" id="tournamentTimeForm">
+        
+        <label for="">
+            Organizer
+        </label>
+        <input type="text" name="tournamentOrganizerForm" id="tournamentOrganizerForm">
+        
+        <label for="">
+            Link to forms signup
+        </label>
+        <input type="text" name="tournamentLinkForm" id="tournamentLinkForm">
+    
+        <button type="submit">add tournament</button>
     
     </form>
+
     <div id="routing">
-      <a href="/adduser">
-        add user
-      </a>
+        <a href="/adduser">
+          add user
+        </a>
+  
+        <a href="/login">
+          log in
+        </a>
+  
+        <a href="/logout">
+          log out
+        </a>
+  
+        <a href="/add_tournament">
+          add tournament
+        </a>
+      </div>
 
-      <a href="/login">
-        log in
-      </a>
-
-      <a href="/logout">
-        log out
-      </a>
-
-      <a href="/add_tournament">
-        add tournament
-      </a>
-    </div>
     <article id="tournamentList">
       <section class="tournamentDiv">
         <div class="nameDate">
@@ -65,6 +85,6 @@
       </section>
     </article>
 
-    <script src="{{ url_for('static', filename='/javascript/script.js') }}"></script>
+    <!-- <script src="{{ url_for('static', filename='/javascript/script.js') }}"></script> -->
   </body>
 </html>

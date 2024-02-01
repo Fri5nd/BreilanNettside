@@ -66,6 +66,18 @@ def logout():
 	logout_user()
 	return redirect(url_for("index"))
 
+@app.route('/add_tournament', methods=['GET', 'POST'])
+def addTournament():
+    if request.method == 'POST':
+         if 'tournamentNameForm' in request.form:
+              tournament_Name = request.form['tournamentNameForm']
+              tournament_Date = request.form['tournamentDateForm']
+              tournament_Time = request.form['tournamentTimeForm']
+              tournament_Organizer = request.form['tournamentOrganizerForm']
+              tournament_Link = request.form['tournamentLinkForm']
+              new_Tournament = Tournaments(tournamentName=tournament_Name, dato=tournament_Date, organizer=tournament_Organizer, time=tournament_Time, linkToForms=tournament_Link)
+    return render_template("add_tournament.html")
+
 # Comment this out or remove before deploying website
 # route for form that adds users
 @app.route('/adduser', methods=['GET', 'POST'])

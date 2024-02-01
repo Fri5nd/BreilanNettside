@@ -32,3 +32,19 @@
 .signUpLink{
     margin-left: auto;
 }
+
+#routing{
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin: auto;
+}
+
+#tournamentForm{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 50%;
+    margin: auto;
+}
