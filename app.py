@@ -76,6 +76,8 @@ def addTournament():
               tournament_Organizer = request.form['tournamentOrganizerForm']
               tournament_Link = request.form['tournamentLinkForm']
               new_Tournament = Tournaments(tournamentName=tournament_Name, dato=tournament_Date, organizer=tournament_Organizer, time=tournament_Time, linkToForms=tournament_Link)
+              db.session.add(new_Tournament)
+              db.session.commit
     return render_template("add_tournament.html")
 
 # Comment this out or remove before deploying website
