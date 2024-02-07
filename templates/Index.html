@@ -38,32 +38,44 @@
         add tournament
       </a>
     </div>
-    <article id="tournamentList">
-      <section class="tournamentDiv">
+    <section id="tournamentList">
+      <article class="tournamentDiv">
         <div class="nameDate">
           <h1>Super Smash bros</h1>
           <p>17.feb kl.19:00</p>
         </div>
         <p class="organizer">Fredrik Gya</p>
         <a href="https://www.w3schools.com/jquery/ajax_ajaxcomplete.asp" class="signUpLink">Påmelding</a>
-      </section>
-      <section class="tournamentDiv">
+      </article>
+      <article class="tournamentDiv">
         <div class="nameDate">
           <h1>Super Smash bros</h1>
           <p>17.feb kl.19:00</p>
         </div>
         <p class="organizer">Fredrik Gya</p>
         <a href="https://www.w3schools.com/jquery/ajax_ajaxcomplete.asp" class="signUpLink">Påmelding</a>
-      </section>
-      <section class="tournamentDiv">
+      </article>
+      <article class="tournamentDiv">
         <div class="nameDate">
           <h1>Super Smash bros</h1>
           <p>17.feb kl.19:00</p>
         </div>
         <p class="organizer">Fredrik Gya</p>
         <a href="https://www.w3schools.com/jquery/ajax_ajaxcomplete.asp" class="signUpLink">Påmelding</a>
-      </section>
-    </article>
+      </article>
+    </section>
+
+    <section class="tournamentList">
+      {% for tournament in tournaments %}
+      <article class="tournamentDiv">
+        <div class="nameDate">
+          <h1>{{ tournament.tournamentName }}</h1>
+          <p>{{ tournament.dato }} {{ tournament.time }}</p>
+        </div>
+        <p class="organizer">{{ tournament.organizer }}</p>
+        <a href="{{ tournament.linkToForms }}" class="signUpLink">Påmelding</a>
+      {% endfor %}
+    </section>
 
     <script src="{{ url_for('static', filename='/javascript/script.js') }}"></script>
   </body>

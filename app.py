@@ -34,17 +34,19 @@ with app.app_context():
 # function that loads users
 @login_manager.user_loader
 def loader_user(user_id):
-	return Users.query.get(user_id)
+	return db.session.get(Users, user_id)
 
 # route for the main page of the site
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
-         return render_template('index.html')
+         tournaments = Tournaments.query.all()
+         return render_template('index.html', tournaments=tournaments)
 
 # route for loging in a user
 @app.route('/login', methods=['GET', 'POST'])
 def login(): 
+    
     flashed_message = get_flashed_messages(category_filter=['notAuth'])
     flashed_message = ','.join(flashed_message)
 
@@ -80,18 +82,18 @@ def addTournament():
         error="Du kan ikke endre på turneringer utenom å være pålogget!"
         flash(error, 'notAuth')
         return redirect(url_for('login'))
-    else:
-        if request.method == 'POST':
-            if 'tournamentNameForm' in request.form:
-                tournament_Name = request.form['tournamentNameForm']
-                tournament_Date = request.form['tournamentDateForm']
-                tournament_Time = request.form['tournamentTimeForm']
-                tournament_Organizer = request.form['tournamentOrganizerForm']
-                tournament_Link = request.form['tournamentLinkForm']
-                new_Tournament = Tournaments(tournamentName=tournament_Name, dato=tournament_Date, organizer=tournament_Organizer, time=tournament_Time, linkToForms=tournament_Link)
-                db.session.add(new_Tournament)
-                db.session.commit
-        return render_template("add_tournament.html")
+    
+    if request.method == 'POST':
+        if 'tournamentNameForm' in request.form:
+            tournament_Name = request.form['tournamentNameForm']
+            tournament_Date = request.form['tournamentDateForm']
+            tournament_Time = request.form['tournamentTimeForm']
+            tournament_Organizer = request.form['tournamentOrganizerForm']
+            tournament_Link = request.form['tournamentLinkForm']
+            new_Tournament = Tournaments(tournamentName=tournament_Name, dato=tournament_Date, organizer=tournament_Organizer, time=tournament_Time, linkToForms=tournament_Link)
+            db.session.add(new_Tournament)
+            db.session.commit()
+    return render_template("add_tournament.html")
 
 # Comment this out or remove before deploying website
 # route for form that adds users
