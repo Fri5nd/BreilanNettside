@@ -56,19 +56,18 @@ def login():
         if user and user.password == request.form.get("passwordInput"):
             login_user(user)
             return redirect(url_for("index"))
-        else:
+        
             # Invalid username or password
-            return render_template("login.html", error="Invalid username or password")
+        return render_template("login.html", error="Invalid username or password")
 
-    elif request.method == 'POST' and (request.form.get("usernameInput") == "" or request.form.get("passwordInput") == ""):
+    if request.method == 'POST' and (request.form.get("usernameInput") == "" or request.form.get("passwordInput") == ""):
         # Form not submitted correctly (e.g., missing username or password)
         return render_template("login.html", error="Please provide both username and password")
 
-    elif flashed_message != None:
+    if flashed_message != None:
         return render_template("login.html", flashed_message=flashed_message)
 
-    else:
-        return render_template("login.html")
+    return render_template("login.html")
 
 # route for logging out of your account
 @app.route("/logout")
@@ -106,6 +105,26 @@ def adduser():
         return redirect(url_for("index"))
     return render_template("addUser.html")
 
+@app.route('/crew_panel', methods=['POST', 'GET'])
+def crew_panel():
+    if not current_user.is_authenticated:
+        error="Du kan ikke endre på turneringer utenom å være pålogget!"
+        flash(error, 'notAuth')
+        return redirect(url_for('login'))
+    
+    if request.method == 'GET':
+         tournaments = Tournaments.query.all()
+         return render_template('admin_panel.html', tournaments=tournaments)
+    
+@app.route('/delete/<int:tournament_id>', methods=['POST'])
+def delete_tournament(tournament_id):
+    tournament_to_delete = Tournaments.query.get(tournament_id)
+    if tournament_to_delete == Tournaments.query.get(tournament_id):
+        db.session.delete(tournament_to_delete)
+        db.session.commit()
+    return redirect(url_for('crew_panel'))
+
+
 # runs the app on the flask development server
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', port=80)
