@@ -57,7 +57,7 @@ def login():
             login_user(user)
             return redirect(url_for("index"))
         
-            # Invalid username or password
+        # Invalid username or password
         return render_template("login.html", error="Invalid username or password")
 
     if request.method == 'POST' and (request.form.get("usernameInput") == "" or request.form.get("passwordInput") == ""):
