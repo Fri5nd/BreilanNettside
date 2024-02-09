@@ -46,7 +46,7 @@ def index():
 # route for loging in a user
 @app.route('/login', methods=['GET', 'POST'])
 def login(): 
-    
+
     flashed_message = get_flashed_messages(category_filter=['notAuth'])
     flashed_message = ','.join(flashed_message)
 
