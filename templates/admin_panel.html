@@ -8,7 +8,18 @@
   </head>
   <body>
     <h1 class=" ">{{ current_user.username }}</h1>
-
+    <form id="loginForm" action="{{ url_for('adduser') }}" method="post">
+      <label >
+        username
+      </label>
+      <input type="text" name="usernameInput" id="usernameInput">
+      <label >
+        password
+      </label>
+      <input type="password" name="passwordInput" id="passwordInput">
+      <button type="submit">login</button>
+    
+    </form>
     <div id="routing">
       <a href="/adduser">
         add user
