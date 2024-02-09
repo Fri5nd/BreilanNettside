@@ -4,7 +4,7 @@ from flask_login import LoginManager, UserMixin, login_user, logout_user, curren
 
 # config 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.sqlite'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///instance/database.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config["SECRET_KEY"] = "abc"
 db = SQLAlchemy(app)
@@ -41,7 +41,7 @@ def loader_user(user_id):
 def index():
     if request.method == 'GET':
          tournaments = Tournaments.query.all()
-         return render_template('index.html', tournaments=tournaments)
+         return render_template('Index.html', tournaments=tournaments)
 
 # route for loging in a user
 @app.route('/login', methods=['GET', 'POST'])
