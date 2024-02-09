@@ -1,3 +1,53 @@
+body {
+    margin: 0;
+    background-color: rgb(65, 65, 65);
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+#navBar1 {
+    height: 100px;
+    width: 50%;
+    background-color: red;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+#navBar2 {
+    height: 100px;
+    width: 50%;
+    background-color: red;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    padding-right: 25px;
+    gap: 20px;
+}
+
+#uberNavBar {
+    width: 100%;
+    height: 100px;
+    display: flex;
+}
+
+#loggedInUser {
+    margin: 0;
+    margin-left: 25px;
+}
+
+#BreiLANLogo {
+    height: 75px;
+    margin-left: 25px;
+}
+
+.navButton {
+    text-decoration: none;
+    color: black;
+    align-items: flex-end;
+}
+
 .tournamentList{
     width: 70%;
     height: auto;
@@ -31,14 +81,6 @@
 
 .signUpLink{
     margin-left: auto;
-}
-
-#routing{
-    width: 60%;
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    margin: auto;
 }
 
 #tournamentForm{
