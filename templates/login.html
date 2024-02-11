@@ -35,18 +35,20 @@
       </nav>
     </nav>
     
-    <form id="loginForm" action="#" method="post">
-      <label >
-        username
-      </label>
-      <input type="text" name="usernameInput" id="usernameInput">
-      <label >
-        password
-      </label>
-      <input type="password" name="passwordInput" id="passwordInput">
-      <button type="submit">login</button>
-    
-    </form>
+    <section id="LoginSection">
+      <form id="loginForm" action="#" method="post">
+        <label class="loginLabel">
+          username
+        </label>
+        <input type="text" name="usernameInput" id="usernameInput" class="textField">
+        <label class="loginLabel">
+          password
+        </label>
+        <input type="password" name="passwordInput" id="passwordInput" class="textField">
+        <button type="submit" class="button">login</button>
+      
+      </form>
+    </section>
 
     <!-- <script src="{{ url_for('static', filename='/javascript/script.js') }}"></script> -->
 
