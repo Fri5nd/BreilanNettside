@@ -33,7 +33,7 @@ body {
 
 #navBar2 {
     height: 100px;
-    width: 50%;
+    width: 40%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -106,6 +106,78 @@ body {
     border: solid 2px white;
     border-radius: 5px;
     box-shadow: 1px 2px 3px rgba(255, 255, 255, 0.5);
+}
+
+.navBars {
+    height: 50px;
+    width: 50px;
+    margin-top: 25px;
+}
+
+#navBar3 {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#navBar3:hover .dropdownDiv {
+    display: flex;
+}
+
+.dropdownDiv {
+    width: 95%;
+    margin-top: -20px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navButtonDropdown {
+    width: 100%;
+    height: 45px;
+    color: white;
+    text-decoration: none;  
+    border-radius: 10px;
+    border-bottom: solid 1px var(--BreiLANGrey);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navButtonDropdown:hover {
+    cursor: pointer;
+    background-color: var(--BreiLANGrey2);
+}
+
+.triangle-up {
+	width: 0;
+	height: 0;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	border-bottom: 40px solid #ffffff;
+}
+
+.triangle-up-small {
+    position: absolute;
+    margin-top: 6px;
+    margin-bottom: -3px;
+	width: 0;
+	height: 0;
+	border-left: 22px solid transparent;
+	border-right: 22px solid transparent;
+	border-bottom: 35px solid #000000;
+}
+
+#dropdown {
+    margin-top: -3px;
+    width: 100%;
+    background-color: black;
+    border: solid 3px white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 #loggedInUser {
