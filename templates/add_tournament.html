@@ -8,56 +8,64 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   </head>
   <body>
-    <h1 class=" ">{{ current_user.username }}</h1>
+    <nav id="uberNavBar">
+      <nav id="navBar1">
+        <img src="../static/images/BreiLAN logo transparent.png" id="BreiLANLogo" class="navLeft">
+        <h1 id="loggedInUser" class="navLeft">Logged in as: {{ current_user.username }}</h1>
+      </nav>
+      <nav id="navBar2">
+        <a href="/adduser" class="navButton">
+          add user
+        </a>
+  
+        <a href="/login" class="navButton">
+          log in
+        </a>
+  
+        <a href="/logout" class="navButton">
+          log out
+        </a>
+  
+        <a href="/add_tournament" class="navButton">
+          add tournament
+        </a>
+  
+        <a href="/crew_panel" class="navButton">
+          crew_panel
+        </a>
+      </nav>
+    </nav>
+    
     <form id="tournamentForm" action="#" method="post">
       
         <label >
             Name of tournament
         </label>
-        <input type="text" name="tournamentNameForm" id="tournamentNameForm">
+        <input type="text" name="tournamentNameForm" id="tournamentNameForm" class="textField">
 
         <label >
             Date
         </label>
-        <input type="text" name="tournamentDateForm" id="tournamentDateForm">
+        <input type="text" name="tournamentDateForm" id="tournamentDateForm" class="textField">
 
         <label >
             time
         </label>
-        <input type="text" name="tournamentTimeForm" id="tournamentTimeForm">
+        <input type="text" name="tournamentTimeForm" id="tournamentTimeForm" class="textField">
         
         <label for="">
             Organizer
         </label>
-        <input type="text" name="tournamentOrganizerForm" id="tournamentOrganizerForm">
+        <input type="text" name="tournamentOrganizerForm" id="tournamentOrganizerForm" class="textField">
         
         <label for="">
             Link to forms signup
         </label>
-        <input type="text" name="tournamentLinkForm" id="tournamentLinkForm">
+        <input type="text" name="tournamentLinkForm" id="tournamentLinkForm" class="textField">
     
-        <button type="submit">add tournament</button>
+        <button type="submit" class="button" id="addTournamentButton">add tournament</button>
     
     </form>
-
-    <div id="routing">
-        <a href="/adduser">
-          add user
-        </a>
-  
-        <a href="/login">
-          log in
-        </a>
-  
-        <a href="/logout">
-          log out
-        </a>
-  
-        <a href="/add_tournament">
-          add tournament
-        </a>
-      </div>
-
 
     <!-- <script src="{{ url_for('static', filename='/javascript/script.js') }}"></script> -->
   </body>

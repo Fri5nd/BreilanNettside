@@ -1,13 +1,30 @@
+:root {
+    --editColor: rgba(0, 174, 255, 0.25);
+
+    --BreiLANGrey: rgb(32, 32, 32);
+    --BreiLANGrey2: rgb(15, 15, 15);
+}
+
+@font-face {
+    font-family: AzoSans-Bold;
+    src: url(../fonts/AzoSans-Bold.otf);
+}
+
+@font-face {
+    font-family: AzoSans-BoldItalic;
+    src: url(../fonts/AzoSans-BoldItalic.otf);
+}
+
 body {
     margin: 0;
-    background-color: rgb(65, 65, 65);
-    font-family:Arial, Helvetica, sans-serif;
+    background-color: black;
+    color: white;
+    font-family: AzoSans-Bold;
 }
 
 #navBar1 {
     height: 100px;
     width: 50%;
-    background-color: red;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -17,7 +34,6 @@ body {
 #navBar2 {
     height: 100px;
     width: 50%;
-    background-color: red;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -30,6 +46,66 @@ body {
     width: 100%;
     height: 100px;
     display: flex;
+    background-image: linear-gradient(var(--BreiLANGrey), var(--BreiLANGrey2));
+    border-bottom: solid 3px white;
+}
+
+#LoginSection {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginLabel {
+    margin: 20px;
+    font-size: x-large;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#addTournamentButton {
+    width: 125px;
+}
+
+#deleteTaskButton {
+    width: 150px;
+    margin: 0;
+    margin-top: -5px;
+    box-shadow: 0 0;
+}
+
+.button {
+    margin: 20px;
+    color: white;
+    font-family: AzoSans-Bold;
+    height: 30px;
+    width: 65px;
+    background-color: black;
+    border: solid 2px white;
+    border-radius: 5px;
+    box-shadow: 1px 2px 3px rgba(255, 255, 255, 0.5);
+    transition: 0.2s;
+}
+
+.button:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: var(--BreiLANGrey2);
+}
+
+.textField {
+    color: white;
+    height: 20px;
+    background-color: var(--BreiLANGrey2);
+    border: solid 2px white;
+    border-radius: 5px;
+    box-shadow: 1px 2px 3px rgba(255, 255, 255, 0.5);
 }
 
 #loggedInUser {
@@ -38,34 +114,38 @@ body {
 }
 
 #BreiLANLogo {
-    height: 75px;
+    height: 100px;
     margin-left: 25px;
 }
 
 .navButton {
     text-decoration: none;
-    color: black;
+    color: white;
     align-items: flex-end;
 }
 
 .tournamentList{
     width: 70%;
+    margin-left: 15%;
     height: auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: flex-start;
 }
 
 .tournamentDiv{
     width: 450px;
     height: 100px;
-    background-color: grey;
+    background-color: var(--BreiLANGrey2);
     display: flex;
     flex-direction: column;
     padding: 10px;
+    border: solid 3px white;
     border-radius: 15px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 25px;
 }
 
 
@@ -81,12 +161,15 @@ body {
 
 .signUpLink{
     margin-left: auto;
+    color: white;
 }
 
 #tournamentForm{
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
     width: 50%;
     margin: auto;
+    margin-top: 25px;
 }

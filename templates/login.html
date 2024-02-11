@@ -7,31 +7,48 @@
     <title>Breilan</title>
   </head>
   <body onload="error_check()">
-    <h1 class="">{{ current_user.username}}</h1>
-    <form id="loginForm" action="#" method="post">
-      <label >
-        username
-      </label>
-      <input type="text" name="usernameInput" id="usernameInput">
-      <label >
-        password
-      </label>
-      <input type="password" name="passwordInput" id="passwordInput">
-      <button type="submit">login</button>
+    <nav id="uberNavBar">
+      <nav id="navBar1">
+        <img src="../static/images/BreiLAN logo transparent.png" id="BreiLANLogo" class="navLeft">
+        <h1 id="loggedInUser" class="navLeft">Logged in as: {{ current_user.username }}</h1>
+      </nav>
+      <nav id="navBar2">
+        <a href="/adduser" class="navButton">
+          add user
+        </a>
+  
+        <a href="/login" class="navButton">
+          log in
+        </a>
+  
+        <a href="/logout" class="navButton">
+          log out
+        </a>
+  
+        <a href="/add_tournament" class="navButton">
+          add tournament
+        </a>
+  
+        <a href="/crew_panel" class="navButton">
+          crew_panel
+        </a>
+      </nav>
+    </nav>
     
-    </form>
-
-    <a href="/adduser">
-      add user
-    </a>
-
-    <a href="/login">
-      log in
-    </a>
-
-    <a href="/logout">
-        log out
-    </a>
+    <section id="LoginSection">
+      <form id="loginForm" action="#" method="post">
+        <label class="loginLabel">
+          username
+        </label>
+        <input type="text" name="usernameInput" id="usernameInput" class="textField">
+        <label class="loginLabel">
+          password
+        </label>
+        <input type="password" name="passwordInput" id="passwordInput" class="textField">
+        <button type="submit" class="button">login</button>
+      
+      </form>
+    </section>
 
     <!-- <script src="{{ url_for('static', filename='/javascript/script.js') }}"></script> -->
 
