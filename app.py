@@ -4,7 +4,13 @@ from flask_login import LoginManager, UserMixin, login_user, logout_user, curren
 
 # config 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///instance/database.sqlite'
+
+# path to database for windows machines
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.sqlite'
+
+# path to database for linux machines
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://instance/database.sqlite'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config["SECRET_KEY"] = "abc"
 db = SQLAlchemy(app)
@@ -51,7 +57,7 @@ def login():
     flashed_message = ','.join(flashed_message)
 
 
-    if request.method == 'POST' and (request.form.get("usernameInput") != "" and request.form.get("passwordInput") != ""):
+    if request.method == 'POST':
         user = Users.query.filter_by(username=request.form.get("usernameInput")).first()
         if user and user.password == request.form.get("passwordInput"):
             login_user(user)
@@ -59,10 +65,6 @@ def login():
         
         # Invalid username or password
         return render_template("login.html", error="Invalid username or password")
-
-    if request.method == 'POST' and (request.form.get("usernameInput") == "" or request.form.get("passwordInput") == ""):
-        # Form not submitted correctly (e.g., missing username or password)
-        return render_template("login.html", error="Please provide both username and password")
 
     if flashed_message != None:
         return render_template("login.html", flashed_message=flashed_message)
