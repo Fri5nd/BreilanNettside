@@ -126,11 +126,11 @@ def delete_tournament(tournament_id):
         db.session.commit()
     return redirect(url_for('crew_panel'))
 
-@app.route('om_oss', methods=['GET'])
+@app.route('/om_oss', methods=['GET'])
 def omOss():
     render_template('om_oss.html')
 
-@app.route('kontakt_oss', methods=['GET'])
+@app.route('/kontakt_oss', methods=['GET'])
 def kontaktOss():
     render_template('kontakt.html')
 
