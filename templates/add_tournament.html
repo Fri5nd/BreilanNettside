@@ -32,21 +32,21 @@
           <div class="triangle-up"></div>
           <div class="triangle-up-small"></div>
           <div id="dropdown">
-            <a href="/login" class="navButtonDropdown">
-              log in
-            </a>
-            <a href="/logout" class="navButtonDropdown">
-              log out
-            </a>
-            <a href="/add_tournament" class="navButtonDropdown">
-              add tournament
-            </a>
-            <a href="/crew_panel" class="navButtonDropdown">
-              crew panel
-            </a>
-            <a href="/adduser" class="navButtonDropdown">
-              add user
-            </a>
+            {% if not current_user.is_authenticated %}
+              <a href="/login" class="navButtonDropdown">
+                log in
+              </a>
+            {% else  %}
+              <a href="/logout" class="navButtonDropdown">
+                log out
+              </a>
+              <a href="/add_tournament" class="navButtonDropdown">
+                add tournament
+              </a>
+              <a href="/crew_panel" class="navButtonDropdown">
+                crew panel
+              </a>
+            {% endif %}
           </div>
         </div>
       </nav>
