@@ -202,15 +202,16 @@ body {
     height: 600px;
     display: flex;
     justify-content: center;
+    gap: 50px;
 }
 
 #contactForm {
-    background-color: var(--editColor);
     width: 500px;
     height: 100%;
     display: flex;
     flex-direction: column;
     padding-top: 15px;
+    margin-left: 20%;
 }
 
 .textSubmit {
@@ -249,6 +250,53 @@ body {
 #contactFormSubmit:hover {
     scale: 1.1;
     cursor: pointer;
+}
+
+#contactDiv2 {
+    width: 500px;
+    height: 100%;
+    padding-top: 15px;
+}
+
+.contactSlide {
+    height: 150px;
+    width: 100%;
+    display: flex;
+}
+
+.contact {
+    height: 150px;
+    width: 75%;
+    padding-left: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact p {
+    margin-top: -10px;
+}
+
+.contact h2 {
+    font-size: small;
+    margin-top: -25px;
+}
+
+.contact h1 {
+    font-size: 30px;
+}
+
+.contactImgDiv {
+    height: 150px;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactImage {
+    height: 75%;
+    border: solid 2px white;
+    border-radius: 75px;
 }
 
 #loggedInUser {
