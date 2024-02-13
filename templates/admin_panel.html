@@ -56,16 +56,55 @@
       <article class="tournamentDiv">
         <div class="nameDate">
           <h1>{{ tournament.tournamentName }}</h1>
-          <p>{{ tournament.dato }} {{ tournament.time }}</p>
+          <div class="tournamentDateTime">
+            <p>{{ tournament.dato }}</p>
+            <p>{{ tournament.time }}</p>
+          </div>
         </div>
         <p class="organizer">{{ tournament.organizer }}</p>
         <a href="{{ tournament.linkToForms }}" class="signUpLink">Påmelding</a>
         <form action="{{url_for('delete_tournament', tournament_id=tournament.id)}}" method="post">
             <button type="submit" class="button" id="deleteTaskButton">Slett oppgave</button>
         </form>
+        <button onclick="showEditForm(this)">Edit Tournament</button>
+        <h1 style="display: none;">{{ tournament.id }}</h1>
       </article>
       {% endfor %}
     </section>
 
+    <form id="tournamentEditForm" action="#" method="post" style="display: none;">
+         
+      <input type="text" value="Temp" name="tournamentIDForm" id="tournamentIDForm" style="display: none;">
+
+      <label >
+          Name of tournament
+      </label>
+      <input type="text" name="tournamentNameForm" id="tournamentNameForm" class="textField">
+
+      <label >
+          Date
+      </label>
+      <input type="text" name="tournamentDateForm" id="tournamentDateForm" class="textField">
+
+      <label >
+          time
+      </label>
+      <input type="text" name="tournamentTimeForm" id="tournamentTimeForm" class="textField">
+
+      <label for="">
+          Organizer
+      </label>
+      <input type="text" name="tournamentOrganizerForm" id="tournamentOrganizerForm" class="textField">
+      
+      <label for="">
+          Link to forms signup
+      </label>
+      <input type="text" name="tournamentLinkForm" id="tournamentLinkForm" class="textField">
+
+      <button type="submit" class="button" id="addTournamentButton">add tournament</button>
+
+    </form>
+
+    <script src="{{ url_for('static', filename='/javascript/editForm.js') }}"></script>
   </body>
 </html>

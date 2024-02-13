@@ -1,15 +1,20 @@
 from flask import Flask, render_template, request, url_for, redirect, flash, get_flashed_messages
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user
+import platform, os, sys
+
 
 # config 
 app = Flask(__name__)
 
-# path to database for windows machines
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.sqlite'
-
-# path to database for linux machines
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://instance/database.sqlite'
+operatingSystem = platform.system()
+match operatingSystem:
+    case 'Windows':
+        print("running on Windows", file=sys.stderr)
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.sqlite'
+    case _ :
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://instance/database.sqlite'
+        
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config["SECRET_KEY"] = "abc"
@@ -55,7 +60,6 @@ def login():
 
     flashed_message = get_flashed_messages(category_filter=['notAuth'])
     flashed_message = ','.join(flashed_message)
-
 
     if request.method == 'POST':
         user = Users.query.filter_by(username=request.form.get("usernameInput")).first()
@@ -124,6 +128,17 @@ def delete_tournament(tournament_id):
     if tournament_to_delete == Tournaments.query.get(tournament_id):
         db.session.delete(tournament_to_delete)
         db.session.commit()
+    return redirect(url_for('crew_panel'))
+
+@app.route('/manipulate/<int:tournament_id>', methods=['POST'])
+def manipulate_tournament(tournament_id):
+    tournament_to_manipulate = Tournaments.query.get(tournament_id)
+    tournament_to_manipulate.tournamentName = request.form.get('tournamentNameForm')
+    tournament_to_manipulate.dato = request.form.get('tournamentDateForm')
+    tournament_to_manipulate.time = request.form.get('tournamentTimeForm')
+    tournament_to_manipulate.organizer = request.form.get('tournamentOrganizerForm')
+    tournament_to_manipulate.linkToForms = request.form.get('tournamentLinkForm')
+    db.session.commit()
     return redirect(url_for('crew_panel'))
 
 @app.route('/om_oss', methods=['GET'])

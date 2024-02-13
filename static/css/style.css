@@ -245,3 +245,23 @@ body {
     margin: auto;
     margin-top: 25px;
 }
+
+#tournamentEditForm{
+    background-color: var(--editColor);
+    padding: 3%;
+    border-radius: 12px ;
+    border: 1px var(--BreiLANGrey) solid;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size : 2rem;
+}
+
+#tournamentEditForm button{
+    font-size: 1rem;
+    min-width: 250px;
+}
