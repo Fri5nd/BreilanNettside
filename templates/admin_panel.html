@@ -72,7 +72,7 @@
       {% endfor %}
     </section>
 
-    <form id="tournamentEditForm" action="#" method="post" style="display: none;">
+    <form id="tournamentEditForm" action="{{ url_for('manipulate_tournament') }}" method="post" style="display: none;">
          
       <input type="text" value="Temp" name="tournamentIDForm" id="tournamentIDForm" style="display: none;">
 

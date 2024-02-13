@@ -130,8 +130,9 @@ def delete_tournament(tournament_id):
         db.session.commit()
     return redirect(url_for('crew_panel'))
 
-@app.route('/manipulate/<int:tournament_id>', methods=['POST'])
-def manipulate_tournament(tournament_id):
+@app.route('/manipulate', methods=['POST'])
+def manipulate_tournament():
+    tournament_id = request.form.get('tournamentIDForm')
     tournament_to_manipulate = Tournaments.query.get(tournament_id)
     tournament_to_manipulate.tournamentName = request.form.get('tournamentNameForm')
     tournament_to_manipulate.dato = request.form.get('tournamentDateForm')

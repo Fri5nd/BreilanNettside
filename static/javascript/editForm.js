@@ -19,5 +19,4 @@ function showEditForm(clickedButton) {
     document.getElementById("tournamentOrganizerForm").value = tournamentOrganizer
     document.getElementById("tournamentLinkForm").value = tournamentLink
     document.getElementById("tournamentIDForm").value = tournamentIDElement
-    console.log(document.getElementById("tournamentIDForm").value)
 };
