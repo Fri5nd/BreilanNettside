@@ -6,7 +6,7 @@ from flask_login import LoginManager, UserMixin, login_user, logout_user, curren
 app = Flask(__name__)
 
 # path to database for windows machines
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.sqlite'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///instance/database.sqlite'
 
 # path to database for linux machines
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://instance/database.sqlite'
