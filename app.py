@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect, flash, get_flashed_messages, abort
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user
-import platform, os, sys
 from config import CONFIG
 
 # config 
