@@ -1,23 +1,12 @@
-from flask import Flask, render_template, request, url_for, redirect, flash, get_flashed_messages
+from flask import Flask, render_template, request, url_for, redirect, flash, get_flashed_messages, abort
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user
 import platform, os, sys
-
+from config import CONFIG
 
 # config 
 app = Flask(__name__)
-
-operatingSystem = platform.system()
-match operatingSystem:
-    case 'Windows':
-        print("running on Windows", file=sys.stderr)
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.sqlite'
-    case _ :
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://instance/database.sqlite'
-        
-
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config["SECRET_KEY"] = "abc"
+app.config.from_object(CONFIG)
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -124,11 +113,14 @@ def crew_panel():
     
 @app.route('/delete/<int:tournament_id>', methods=['POST'])
 def delete_tournament(tournament_id):
-    tournament_to_delete = Tournaments.query.get(tournament_id)
-    if tournament_to_delete == Tournaments.query.get(tournament_id):
-        db.session.delete(tournament_to_delete)
-        db.session.commit()
-    return redirect(url_for('crew_panel'))
+    if current_user.is_authenticated:
+        tournament_to_delete = Tournaments.query.get(tournament_id)
+        if tournament_to_delete == Tournaments.query.get(tournament_id):
+            db.session.delete(tournament_to_delete)
+            db.session.commit()
+        return redirect(url_for('crew_panel'))
+    else:
+        abort(418)
 
 @app.route('/manipulate', methods=['POST'])
 def manipulate_tournament():
