@@ -10,19 +10,25 @@
 
     <nav id="uberNavBar">
       <nav id="navBar1">
-        <img src="../static/images/BreiLAN logo transparent.png" id="BreiLANLogo" class="navLeft">
-        <h1 id="loggedInUser" class="navLeft">Logged in as: {{ current_user.username }}</h1>
+        <a href="/">
+          <img src="../static/images/BreiLAN logo transparent.png" id="BreiLANLogo" class="navLeft">
+        </a>
+        {% if not current_user.is_authenticated %}
+
+        {% else %}
+          <h1 id="loggedInUser" class="navLeft">Logged in as: {{ current_user.username }}</h1>
+        {% endif %}
       </nav>
       <nav id="navBar2">
-        <a href="Index.html" class="navButton">
+        <a href="/" class="navButton">
           Hjem
         </a>
-        <a href="om_oss.html" class="navButton">
-            Om oss
-          </a>
-          <a href="kontakt.html" class="navButton">
-            Kontakt
-          </a>
+        <a href="/om_oss" class="navButton">
+          Om oss
+        </a>
+        <a href="/kontakt_oss" class="navButton">
+          Kontakt
+        </a>
       </nav>
       <nav id="navBar3">
         <img src="../static/images/Bars.png" class="navBars">
@@ -49,6 +55,28 @@
         </div>
       </nav>
     </nav>
+
+    <section id="aboutUsSection">
+      <img src="../static/images/BreiLAN logo transparent.png" id="aboutUsImage">
+      <h1>
+        Velkommen til BreiLAN!
+      </h1>
+      <p id="aboutUs">
+        Breilan er et datatreff arrangert av ungdom, for ungdom. Breilan gir rom for både nye og erfarne spillere. Målet er å fremme det sosiale blant ungdommene og skape et positivt spillmiljø.
+      </p>
+      <p id="aboutUs">
+        Del plattformen videre med venner:
+      </p>
+      <a href="https://linktr.ee/breilan" id="aboutUs">
+        https://linktr.ee/breilan
+      </a>
+      <p id="aboutUs">
+        Hent våre ressurser her:
+      </p>
+      <a href="https://drive.google.com/drive/folders/1WR9TJtpLuNLu4yMypBOLwFgYuTDVBYDS?usp=drive_link" id="aboutUs">
+        https://drive.google.com/drive/folders/1WR9TJtpLuNLu4yMypBOLwFgYuTDVBYDS?usp=drive_link
+      </a>
+    </section>
 
   </body>
 </html>

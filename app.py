@@ -5,7 +5,15 @@ from config import CONFIG
 
 # config 
 app = Flask(__name__)
-app.config.from_object(CONFIG)
+
+# path to database for windows machines
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.sqlite'
+
+# path to database for linux machines
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://instance/database.sqlite'
+
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config["SECRET_KEY"] = "abc"
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -133,13 +141,13 @@ def manipulate_tournament():
     db.session.commit()
     return redirect(url_for('crew_panel'))
 
-@app.route('/om_oss', methods=['GET'])
+@app.route('/om_oss', methods=['GET', 'POST'])
 def omOss():
-    render_template('om_oss.html')
+    return render_template('om_oss.html')
 
-@app.route('/kontakt_oss', methods=['GET'])
+@app.route('/kontakt_oss', methods=['GET', 'POST'])
 def kontaktOss():
-    render_template('kontakt.html')
+    return render_template('kontakt.html')
 
 # runs the app on the flask development server
 if __name__ == '__main__':

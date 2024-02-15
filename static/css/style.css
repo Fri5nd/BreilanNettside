@@ -180,6 +180,125 @@ body {
     flex-direction: column;
 }
 
+#aboutUsSection {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#aboutUsImage {
+    height: 200px;
+    width: 200px;
+}
+
+#aboutUs {
+    width: 500px;
+}
+
+#contactSection {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+#contactForm {
+    width: 500px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    margin-left: 20%;
+}
+
+.textSubmit {
+    color: white;
+    font-family: AzoSans-Bold;
+    height: 25px;
+    width: 250px;
+    margin-bottom: 20px;
+    border: solid 2px white;
+    border-radius: 5px;
+    background-image: linear-gradient(var(--BreiLANGrey), var(--BreiLANGrey2));
+}
+
+#message {
+    resize: none;
+    color: white;
+    font-family: AzoSans-Bold;
+    border: solid 2px white;
+    border-radius: 5px;
+    background-image: linear-gradient(var(--BreiLANGrey), var(--BreiLANGrey2));
+}
+
+#contactFormSubmit {
+    color: white;
+    font-family: AzoSans-Bold;
+    border: solid 2px white;
+    border-radius: 10px;
+    box-shadow: 1px 2px 3px rgba(255, 255, 255, 0.5);
+    background-color: black;
+    width: 100px;
+    height: 35px;
+    margin-top: 10px;
+    transition: 0.2s;
+}
+
+#contactFormSubmit:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+
+#contactDiv2 {
+    width: 500px;
+    height: 100%;
+    padding-top: 15px;
+}
+
+.contactSlide {
+    height: 150px;
+    width: 100%;
+    display: flex;
+}
+
+.contact {
+    height: 150px;
+    width: 75%;
+    padding-left: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact p {
+    margin-top: -10px;
+}
+
+.contact h2 {
+    font-size: small;
+    margin-top: -25px;
+}
+
+.contact h1 {
+    font-size: 30px;
+}
+
+.contactImgDiv {
+    height: 150px;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactImage {
+    height: 75%;
+    border: solid 2px white;
+    border-radius: 75px;
+}
+
 #loggedInUser {
     margin: 0;
     margin-left: 25px;
