@@ -62,7 +62,10 @@
       <article class="tournamentDiv">
         <div class="nameDate">
           <h1>{{ tournament.tournamentName }}</h1>
-          <p>{{ tournament.dato }} {{ tournament.time }}</p>
+          <div class="tournamentDateTime">
+            <p>{{ tournament.dato }}</p>
+            <p>{{ tournament.time }}</p>
+          </div>
         </div>
         <p class="organizer">{{ tournament.organizer }}</p>
         <a href="{{ tournament.linkToForms }}" class="signUpLink">Påmelding</a>

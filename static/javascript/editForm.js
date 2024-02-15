@@ -1,7 +1,8 @@
 function showEditForm(clickedButton) {
     document.getElementById("tournamentEditForm").style.display = "flex";
 
-    var buttonParentArticle = clickedButton.parentElement
+    var buttonSemiParentArticle = clickedButton.parentElement
+    var buttonParentArticle = buttonSemiParentArticle.parentElement
     var tournamentNameDateDiv = buttonParentArticle.children[0]
     var tournamentDateTimeDiv = tournamentNameDateDiv.children[1]
 
@@ -10,7 +11,7 @@ function showEditForm(clickedButton) {
     var tournamentTime = tournamentDateTimeDiv.children[1].innerHTML
     var tournamentOrganizer = buttonParentArticle.children[1].innerHTML
     var tournamentLink = buttonParentArticle.children[2].getAttribute("href")
-    var tournamentIDElement = buttonParentArticle.children[5].innerHTML
+    var tournamentIDElement = buttonParentArticle.children[4].innerHTML
     
 
     document.getElementById("tournamentNameForm").value = tournamentName

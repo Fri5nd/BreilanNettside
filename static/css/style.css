@@ -21,6 +21,27 @@ body {
     background-color: black;
     color: white;
     font-family: AzoSans-Bold;
+
+    --s: 194px; /* control the size */
+    --c1: #f6edb3;
+    --c2: #acc4a3;
+  
+    --_l: #0000 calc(25% / 3), var(--c1) 0 25%, #0000 0;
+    --_g: conic-gradient(from 120deg at 50% 87.5%, var(--c1) 120deg, #0000 0);
+  
+    background: var(--_g), var(--_g) 0 calc(var(--s) / 2),
+      conic-gradient(from 180deg at 75%, var(--c2) 60deg, #0000 0),
+      conic-gradient(from 60deg at 75% 75%, var(--c1) 0 60deg, #0000 0),
+      linear-gradient(150deg, var(--_l)) 0 calc(var(--s) / 2),
+      conic-gradient(
+        at 25% 25%,
+        #0000 50%,
+        var(--c2) 0 240deg,
+        var(--c1) 0 300deg,
+        var(--c2) 0
+      ),
+      linear-gradient(-150deg, var(--_l)) #55897c /* third color here */;
+    background-size: calc(0.866 * var(--s)) var(--s);
 }
 
 #navBar1 {
@@ -74,7 +95,7 @@ body {
     width: 10vw;
     height: 4vh;
     margin: 0;
-    margin-top: 7vh;
+    margin-top: 2vh;
     box-shadow: 0 0;
 }
 
@@ -300,10 +321,11 @@ body {
 #loggedInUser {
     margin: 0;
     margin-left: 25px;
+    font-size: 2vh;
 }
 
 #BreiLANLogo {
-    height: 100px;
+    height: 10vh;
     margin-left: 25px;
 }
 
@@ -311,11 +333,12 @@ body {
     text-decoration: none;
     color: white;
     align-items: flex-end;
+    font-size: 2vh;
 }
 
 .tournamentList{
-    width: 80%;
-    margin-left: 10%;
+    width: 75%;
+    margin-left: 12.5%;
     height: auto;   
     display: flex;
     flex-direction: row;
@@ -324,8 +347,8 @@ body {
 }
 
 .tournamentDiv{
-    width: 35vw;
-    height: 20vh;
+    width: 32vw;
+    height: 17vh;
     background-color: var(--BreiLANGrey2);
     display: flex;
     flex-direction: column;
@@ -354,18 +377,21 @@ body {
 }
 
 .nameDate p {
-    font-size: 2vh;
+    font-size: 2.5vh;
+    margin-top: 0vh;
 }
 
 .organizer {
     margin: 0;
     margin-top: -5vh;
-    font-size: x-large;
+    font-size: 2vh;
 }
 
 .signUpLink{
     margin-left: auto;
     color: white;
+    margin-top: 3vh;
+    font-size: 2vh;
 }
 
 #adminButtons {
@@ -386,10 +412,10 @@ body {
 }
 
 #tournamentEditForm{
-    background-color: var(--editColor);
+    background-color: black;
     padding: 3%;
     border-radius: 12px ;
-    border: 1px var(--BreiLANGrey) solid;
+    border: solid 0.5vh white;
     position: absolute;
     display: flex;
     flex-direction: column;
