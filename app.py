@@ -5,15 +5,7 @@ from config import CONFIG
 
 # config 
 app = Flask(__name__)
-
-# path to database for windows machines
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.sqlite'
-
-# path to database for linux machines
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://instance/database.sqlite'
-
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config["SECRET_KEY"] = "abc"
+app.config.from_object(CONFIG)
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
