@@ -21,27 +21,52 @@ body {
     background-color: black;
     color: white;
     font-family: AzoSans-Bold;
-
-    --s: 194px; /* control the size */
-    --c1: #f6edb3;
-    --c2: #acc4a3;
-  
-    --_l: #0000 calc(25% / 3), var(--c1) 0 25%, #0000 0;
-    --_g: conic-gradient(from 120deg at 50% 87.5%, var(--c1) 120deg, #0000 0);
-  
-    background: var(--_g), var(--_g) 0 calc(var(--s) / 2),
-      conic-gradient(from 180deg at 75%, var(--c2) 60deg, #0000 0),
-      conic-gradient(from 60deg at 75% 75%, var(--c1) 0 60deg, #0000 0),
-      linear-gradient(150deg, var(--_l)) 0 calc(var(--s) / 2),
+    --u: 5px;
+    --c1: #ededee;
+    --c2: #000000;
+    --c3: #1e1e1e;
+    --gp: 50% / calc(var(--u) * 16.9) calc(var(--u) * 12.8);
+    background: conic-gradient(
+          from 122deg at 50% 85.15%,
+          var(--c2) 0 58deg,
+          var(--c3) 0 116deg,
+          #fff0 0 100%
+        )
+        var(--gp),
+      conic-gradient(from 122deg at 50% 72.5%, var(--c1) 0 116deg, #fff0 0 100%)
+        var(--gp),
+      conic-gradient(from 58deg at 82.85% 50%, var(--c3) 0 64deg, #fff0 0 100%)
+        var(--gp),
       conic-gradient(
-        at 25% 25%,
-        #0000 50%,
-        var(--c2) 0 240deg,
-        var(--c1) 0 300deg,
-        var(--c2) 0
-      ),
-      linear-gradient(-150deg, var(--_l)) #55897c /* third color here */;
-    background-size: calc(0.866 * var(--s)) var(--s);
+          from 58deg at 66.87% 50%,
+          var(--c1) 0 64deg,
+          var(--c2) 0 130deg,
+          #fff0 0 100%
+        )
+        var(--gp),
+      conic-gradient(from 238deg at 17.15% 50%, var(--c2) 0 64deg, #fff0 0 100%)
+        var(--gp),
+      conic-gradient(
+          from 172deg at 33.13% 50%,
+          var(--c3) 0 66deg,
+          var(--c1) 0 130deg,
+          #fff0 0 100%
+        )
+        var(--gp),
+      linear-gradient(98deg, var(--c3) 0 15%, #fff0 calc(15% + 1px) 100%)
+        var(--gp),
+      linear-gradient(-98deg, var(--c2) 0 15%, #fff0 calc(15% + 1px) 100%)
+        var(--gp),
+      conic-gradient(
+          from -58deg at 50.25% 14.85%,
+          var(--c3) 0 58deg,
+          var(--c2) 0 116deg,
+          #fff0 0 100%
+        )
+        var(--gp),
+      conic-gradient(from -58deg at 50% 28.125%, var(--c1) 0 116deg, #fff0 0 100%)
+        var(--gp),
+      linear-gradient(90deg, var(--c2) 0 50%, var(--c3) 0 100%) var(--gp);
 }
 
 #navBar1 {
