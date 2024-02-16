@@ -278,7 +278,8 @@ body {
 }
 
 #aboutUsSection {
-    width: 100%;
+    width: 75%;
+    margin-left: 12.5%;
     height: 70vh;
     display: flex;
     flex-direction: column;
@@ -301,7 +302,8 @@ body {
 }
 
 #contactSection {
-    width: 100%;
+    width: 75%;
+    margin-left: 7.5%;
     height: 600px;
     display: flex;
     justify-content: center;
