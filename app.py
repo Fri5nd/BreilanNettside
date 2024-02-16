@@ -90,14 +90,14 @@ def addTournament():
 
 # Comment this out or remove before deploying website
 # route for form that adds users
-@app.route('/adduser', methods=['GET', 'POST'])
-def adduser():
-    if request.method == 'POST':
-        user = Users(username=request.form.get("usernameInput"), password=request.form.get("passwordInput"))
-        db.session.add(user)
-        db.session.commit()
-        return redirect(url_for("index"))
-    return render_template("addUser.html")
+#@app.route('/adduser', methods=['GET', 'POST'])
+#def adduser():
+#    if request.method == 'POST':
+#        user = Users(username=request.form.get("usernameInput"), password=request.form.get("passwordInput"))
+#        db.session.add(user)
+#        db.session.commit()
+#        return redirect(url_for("index"))
+#    return render_template("addUser.html")
 
 @app.route('/crew_panel', methods=['POST', 'GET'])
 def crew_panel():
