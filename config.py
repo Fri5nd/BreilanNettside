@@ -8,7 +8,7 @@ def database_URI():
             return 'sqlite:///database.sqlite'
         case _ :
             print(f"running on {operatingSystem}", file=sys.stderr)
-            return 'sqlite://instance/database.sqlite'
+            return 'sqlite:///instance/database.sqlite'
    
 
 class CONFIG:

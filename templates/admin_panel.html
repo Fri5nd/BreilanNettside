@@ -69,9 +69,9 @@
         <a href="{{ tournament.linkToForms }}" class="signUpLink">Påmelding</a>
         <div id="adminButtons">
           <form action="{{url_for('delete_tournament', tournament_id=tournament.id)}}" method="post">
-            <button type="submit" class="button" id="deleteTaskButton">Slett oppgave</button>
+            <button type="submit" class="button" id="deleteTaskButton">Slett turnering</button>
           </form>
-          <button onclick="showEditForm(this)" class="button" id="deleteTaskButton">Edit Tournament</button>
+          <button onclick="showEditForm(this)" class="button" id="deleteTaskButton">Rediger turnering</button>
         </div>
         <h1 style="display: none;">{{ tournament.id }}</h1>
       </article>
@@ -107,7 +107,7 @@
       </label>
       <input type="text" name="tournamentLinkForm" id="tournamentLinkForm" class="textField">
 
-      <button type="submit" class="button" id="addTournamentButton">add tournament</button>
+      <button type="submit" class="button" id="addTournamentButton">Rediger</button>
 
     </form>
 
