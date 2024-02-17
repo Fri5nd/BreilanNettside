@@ -6,6 +6,5 @@ serve(
     app, 
     host='192.168.2.223', 
     port=80,
-    threads=6,
-    task_queue_depth=16
+    threads=6
 )
