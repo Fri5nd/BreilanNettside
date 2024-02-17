@@ -141,6 +141,6 @@ def omOss():
 def kontaktOss():
     return render_template('kontakt.html')
 
-# runs the app on the flask development server
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=80)
+# # runs the app on the flask development server
+# if __name__ == '__main__':
+#     app.run(debug=True, host='0.0.0.0', port=80)
